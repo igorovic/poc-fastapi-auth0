@@ -80,32 +80,6 @@ async def check_permissions(security_scopes: SecurityScopes, jwt_payload=Depends
 
     return jwt_permissions
 
-""" async def get_permissions(request: Request, call_next):
-    print('check_permissions')
-    print(request)
-    return await call_next(request)
-
-
-@app.middleware("http")
-async def check_jwt(request: Request, call_next):
-    print('check_jwt')
-    auth: str = request.headers.get('Authorization')
-    token = None
-    if auth:
-        token = auth.split(' ')[1]
-    if not token:
-        return Response('Unauthorized', 401)
-
-    claims = jwt.decode(token, ks)
-    try:
-        claims.validate()
-    except Exception as e:
-        print(e)
-        return Response('Unauthorized', 401)
-
-    response = await call_next(request)
-    return response """
-
 
 @app.get("/")
 def read_root():
